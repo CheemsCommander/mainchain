@@ -736,7 +736,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     result.push_back(Pair("curtime", pblock->GetBlockTime()));
     result.push_back(Pair("bits", strprintf("%08x", pblock->nBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight+1)));
-    result.push_back(Pair("NbCoinTxn", pblock->vtx[0]->vout.size()));
+    result.push_back(Pair("NbCoinTxn", (int64_t)(pblock->vtx[0]->vout.size())));
 
    std::string strHex = EncodeHexTx(*pblock->vtx[0]);
 std::string erer = EncodeHexTx(*pblock->vtx[0]);
