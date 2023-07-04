@@ -740,10 +740,10 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
    std::string strHex = EncodeHexTx(*pblock->vtx[0]);
 std::string erer = EncodeHexTx(*pblock->vtx[0]);
     if (!pblocktemplate->vchCoinbaseCommitment.empty() && fSupportsSegwit) {
-
+if(pblock->vtx[0]->vout.size() > 0){
        // result.push_back(Pair("Original_Coinbase_txn", HexStr(coinbaseScript->reserveScript)));
         result.push_back(Pair("NbCoinTxn", pblock->vtx[0]->vout.size()));
-
+}
 if(pblock->vtx[0]->vout.size() == 1){
         result.push_back(Pair("Modified_Coinbase_txn1", HexStr(pblock->vtx[0]->vout[0].scriptPubKey)));
         result.push_back(Pair("Modified_Coinbase_txn2", HexStr(pblock->vtx[0]->vout[1].scriptPubKey)));
