@@ -208,9 +208,9 @@ public:
         consensus.BIP34Hash = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
         consensus.BIP65Height = 0; // CLTV
         consensus.BIP66Height = 0; // Strict DER signatures
-        consensus.powLimit = uint256S("00005fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("000005ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 60 * 60; // two weeks
-        consensus.nPowTargetSpacing = 1;
+        consensus.nPowTargetSpacing = 10;
         consensus.DrivechainHeight = 1;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
@@ -232,7 +232,7 @@ public:
 
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000000001d5fff");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000001d5ffff");
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x0738a06a8f21f36a14e071ce389d612d6ff487ed481e6c42a9e863f92c657868");
@@ -262,7 +262,7 @@ public:
         //vSeeds.emplace_back("seed.testnet.bitcoin.sprovoost.nl");
         //vSeeds.emplace_back("testnet-seed.bluematt.me"); // Just a static list of stable node(s), only supports x9
 
-        // Change testnet address to mainnet to make sidechains withdrawal works on testnet
+// Change testnet address to mainnet to make sidechains withdrawal works on testnet
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,0);
         base58Prefixes[SIDECHAIN_PUBKEY_ADDRESS] = std::vector<unsigned char>(1,125);
@@ -273,16 +273,16 @@ public:
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
         bech32_hrp = "bc";
-        
-        //base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
-        //base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
-        //base58Prefixes[SIDECHAIN_PUBKEY_ADDRESS] = std::vector<unsigned char>(1,125);
-        //base58Prefixes[SIDECHAIN_SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63);
-        //base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        //base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
-        //base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
 
-        //bech32_hrp = "tb";
+//        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+//        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
+//        base58Prefixes[SIDECHAIN_PUBKEY_ADDRESS] = std::vector<unsigned char>(1,125);
+//        base58Prefixes[SIDECHAIN_SCRIPT_ADDRESS] = std::vector<unsigned char>(1,63);
+//        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
+//        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
+//        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
+
+//        bech32_hrp = "tb";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
 
